@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -8,24 +12,62 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
+  align-items: center;
+  padding: 20px 40px;
   background: #111;
+  border-bottom: 1px solid #222;
+}
+
+header h1 {
+  color: #ffcc00;
 }
 
 nav a {
-  margin-left: 15px;
-  color: #ffcc00;
+  margin-left: 20px;
+  color: white;
   text-decoration: none;
+  transition: 0.3s;
 }
 
-.hero {
+nav a:hover {
+  color: #ffcc00;
+}
+
+main {
+  padding: 60px 20px;
   text-align: center;
-  padding: 100px 20px;
+}
+
+.hero h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
 }
 
 button {
-  padding: 10px 20px;
+  padding: 12px 24px;
   background: #ffcc00;
   border: none;
   cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 20px;
+  margin: 20px auto;
+  width: 300px;
+  border-radius: 10px;
+  border: 1px solid #222;
+}
+
+.status-online { color: #00ff88; }
+.status-maintenance { color: orange; }
+.status-offline { color: red; }
+
+footer {
+  margin-top: 60px;
+  padding: 20px;
+  border-top: 1px solid #222;
+  text-align: center;
 }
