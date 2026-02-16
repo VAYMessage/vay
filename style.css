@@ -1,73 +1,103 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0f0f0f;
+  font-family: "Segoe UI", sans-serif;
+  background: radial-gradient(circle at 20% 20%, #3a8dde, #0f0f1a 60%);
   color: white;
+  min-height: 100vh;
+  backdrop-filter: blur(20px);
+  overflow-x: hidden;
 }
 
+/* Glass Container */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 0 40px rgba(0,150,255,0.2);
+}
+
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background: #111;
-  border-bottom: 1px solid #222;
+  padding: 25px 50px;
 }
 
 header h1 {
-  color: #ffcc00;
+  font-size: 28px;
+  background: linear-gradient(90deg, #00e0ff, #aaff00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 nav a {
-  margin-left: 20px;
-  color: white;
+  margin-left: 25px;
   text-decoration: none;
+  color: white;
+  font-weight: 500;
   transition: 0.3s;
 }
 
 nav a:hover {
-  color: #ffcc00;
+  color: #00e0ff;
 }
 
-main {
-  padding: 60px 20px;
+/* Hero */
+.hero {
   text-align: center;
+  padding: 120px 20px;
 }
 
 .hero h2 {
-  font-size: 42px;
+  font-size: 48px;
   margin-bottom: 20px;
 }
 
-button {
-  padding: 12px 24px;
-  background: #ffcc00;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 20px;
+.hero p {
+  opacity: 0.8;
+  font-size: 18px;
+}
+
+/* Services Grid */
+.services {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 60px 20px;
 }
 
 .card {
-  background: #1a1a1a;
-  padding: 20px;
-  margin: 20px auto;
   width: 300px;
-  border-radius: 10px;
-  border: 1px solid #222;
+  padding: 25px;
+  transition: 0.4s ease;
 }
 
-.status-online { color: #00ff88; }
-.status-maintenance { color: orange; }
-.status-offline { color: red; }
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 60px rgba(0,255,255,0.4);
+}
 
+.status {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.online { color: #00ff99; }
+.maintenance { color: #ffaa00; }
+.offline { color: #ff4d4d; }
+
+/* Footer */
 footer {
-  margin-top: 60px;
-  padding: 20px;
-  border-top: 1px solid #222;
   text-align: center;
+  padding: 40px;
+  opacity: 0.6;
 }
