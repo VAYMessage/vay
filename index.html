@@ -14,37 +14,37 @@
     <a href="index.html">Главная</a>
     <a href="downloads.html">Загрузки</a>
     <a href="community.html">Сообщество</a>
+    <a href="login.html">VAY ID</a>
   </nav>
 </header>
 
 <section class="hero">
-  <h2>Экосистема VAY</h2>
+  <h2>Платформа будущего.</h2>
   <p>
-    Платформа нового поколения. Программное обеспечение,
-    инфраструктура и сервисы в единой системе.
+    Единая экосистема сервисов, программного обеспечения и облачной инфраструктуры.
   </p>
+  <button onclick="scrollToSection()">Подробнее</button>
 </section>
 
-<section class="section">
-  <h2>Сервисы</h2>
-
+<section class="section" id="ecosystem">
+  <h2>Экосистема</h2>
   <div class="grid">
 
     <div class="card">
       <h3>VAY Desktop</h3>
-      <p>Клиент для управления экосистемой и сервисами.</p>
+      <p>Нативное приложение для управления сервисами.</p>
       <div class="status online">● Online</div>
     </div>
 
     <div class="card">
       <h3>VAY Cloud</h3>
-      <p>Облачная инфраструктура следующего поколения.</p>
+      <p>Гибкая облачная платформа нового поколения.</p>
       <div class="status maintenance">● Maintenance</div>
     </div>
 
     <div class="card">
       <h3>VAY API</h3>
-      <p>Инструменты для разработчиков и интеграций.</p>
+      <p>Инструменты и интеграции для разработчиков.</p>
       <div class="status offline">● Offline</div>
     </div>
 
@@ -54,6 +54,12 @@
 <footer>
   © 2026 VAY Ecosystem
 </footer>
+
+<script>
+function scrollToSection() {
+  document.getElementById("ecosystem").scrollIntoView({ behavior: "smooth" });
+}
+</script>
 
 </body>
 </html>
