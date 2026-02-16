@@ -12,50 +12,39 @@
   <h1>VAY</h1>
   <nav>
     <a href="index.html">Главная</a>
-    <a href="pages/downloads.html">Загрузки</a>
-    <a href="pages/community.html">Сообщество</a>
+    <a href="downloads.html">Загрузки</a>
+    <a href="community.html">Сообщество</a>
   </nav>
 </header>
 
-<main>
-  <section class="hero">
-    <h2>Экосистема VAY</h2>
-    <p>Платформа. ПО. Инфраструктура.</p>
-  </section>
+<section class="hero">
+  <h2>VAY Ecosystem</h2>
+  <p>Платформа. ПО. Инфраструктура. Будущее.</p>
+</section>
 
-  <h2>Сервисы</h2>
-  <div id="services"></div>
-</main>
+<section class="services">
+  <div class="card glass">
+    <h3>VAY Desktop</h3>
+    <p>Клиент для управления экосистемой.</p>
+    <div class="status online">ONLINE</div>
+  </div>
+
+  <div class="card glass">
+    <h3>VAY Cloud</h3>
+    <p>Будущая облачная платформа.</p>
+    <div class="status maintenance">MAINTENANCE</div>
+  </div>
+
+  <div class="card glass">
+    <h3>VAY API</h3>
+    <p>Инфраструктура для разработчиков.</p>
+    <div class="status offline">OFFLINE</div>
+  </div>
+</section>
 
 <footer>
   © 2026 VAY Ecosystem
 </footer>
-
-<script>
-fetch("data/services.json")
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById("services");
-
-    data.forEach(service => {
-      const card = document.createElement("div");
-      card.className = "card";
-
-      let statusClass = "";
-      if (service.status === "online") statusClass = "status-online";
-      if (service.status === "maintenance") statusClass = "status-maintenance";
-      if (service.status === "offline") statusClass = "status-offline";
-
-      card.innerHTML = `
-        <h3>${service.name}</h3>
-        <p>${service.description}</p>
-        <p class="${statusClass}">Статус: ${service.status}</p>
-      `;
-
-      container.appendChild(card);
-    });
-  });
-</script>
 
 </body>
 </html>
