@@ -1,0 +1,17 @@
+[
+  {
+    "name": "VAY Desktop",
+    "description": "Клиент для управления экосистемой VAY",
+    "status": "online"
+  },
+  {
+    "name": "VAY Cloud",
+    "description": "Будущая облачная платформа",
+    "status": "maintenance"
+  },
+  {
+    "name": "VAY API",
+    "description": "Инфраструктура для разработчиков",
+    "status": "offline"
+  }
+]
