@@ -1,33 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Admin Panel</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAY Admin</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="glass-bg">
 
-<header>
-  <h1>VAY Admin</h1>
-  <nav>
-    <a href="index.html">Главная</a>
-    <a href="login.html">Выйти</a>
-  </nav>
-</header>
+<div class="login-container" id="loginBox">
+    <div class="glass-card">
+        <h2>VAY Admin Panel</h2>
+        <input type="text" id="adminLogin" placeholder="Логин">
+        <input type="password" id="adminPassword" placeholder="Пароль">
+        <button onclick="loginAdmin()">Войти</button>
+        <p id="loginError"></p>
+    </div>
+</div>
 
-<section class="section">
-  <div class="glass-strong card">
-    <h2>Панель администратора</h2>
-    <p>Управление статусами сервисов.</p>
+<div class="admin-panel hidden" id="adminPanel">
+    <div class="glass-card">
+        <h2>Управление сервисами</h2>
 
-    <div class="grid" style="margin-top:30px;">
+        <div class="service-control">
+            <span>VAY Cloud</span>
+            <select onchange="updateService('cloud', this.value)">
+                <option value="online">Online</option>
+                <option value="maintenance">Maintenance</option>
+                <option value="ddos">DDoS Scan</option>
+                <option value="offline">Offline</option>
+            </select>
+        </div>
 
-      <div class="glass card">
-        <h3>VAY Desktop</h3>
-        <p class="online">● Online</p>
-        <button>Изменить статус</button>
-      </div>
+        <div class="service-control">
+            <span>VAY Messenger</span>
+            <select onchange="updateService('messenger', this.value)">
+                <option value="online">Online</option>
+                <option value="maintenance">Maintenance</option>
+                <option value="ddos">DDoS Scan</option>
+                <option value="offline">Offline</option>
+            </select>
+        </div>
 
-      <div class="glass card">
-        <h3>VAY Cloud</h3>
-        <p class="maintenance
+        <div class="service-control">
+            <span>VAY Store</span>
+            <select onchange="updateService('store', this.value)">
+                <option value="online">Online</option>
+                <option value="maintenance">Maintenance</option>
+                <option value="ddos">DDoS Scan</option>
+                <option value="offline">Offline</option>
+            </select>
+        </div>
+
+        <button onclick="logoutAdmin()">Выйти</button>
+    </div>
+</div>
+
+<script src="js/admin.js"></script>
+</body>
+</html>
