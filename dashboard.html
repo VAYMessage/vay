@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAY Dashboard</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="dashboard-container">
+
+    <h1 class="title">VAY Hub</h1>
+    <p class="subtitle">Экосистема сервисов</p>
+
+    <div class="services-grid">
+
+        <div class="service-card" onclick="openService('cloud')">
+            <h3>VAY Cloud</h3>
+            <p id="status-cloud" class="status"></p>
+            <button>Открыть</button>
+        </div>
+
+        <div class="service-card" onclick="openService('messenger')">
+            <h3>VAY Messenger</h3>
+            <p id="status-messenger" class="status"></p>
+            <button>Открыть</button>
+        </div>
+
+        <div class="service-card" onclick="openService('store')">
+            <h3>VAY Store</h3>
+            <p id="status-store" class="status"></p>
+            <button>Открыть</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
