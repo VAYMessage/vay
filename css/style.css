@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1a1a1a, #111);
+    color: white;
+}
+
+.glass-bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.glass-card {
+    backdrop-filter: blur(30px);
+    background: rgba(255, 255, 0, 0.08);
+    border: 1px solid rgba(255, 255, 0, 0.2);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 255, 0, 0.15);
+    text-align: center;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.1);
+    color: white;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: rgba(255, 255, 0, 0.2);
+    color: white;
+}
+
+button:hover {
+    background: rgba(255, 255, 0, 0.4);
+}
+
+.hidden {
+    display: none;
+}
+
+.service-control {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.center {
+    text-align: center;
+}
