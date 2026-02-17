@@ -3,57 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VAY Admin</title>
+<title>VAY Admin PRO</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="glass-bg">
+<body>
 
-<div class="login-container" id="loginBox">
-    <div class="glass-card">
-        <h2>VAY Admin Panel</h2>
-        <input type="text" id="adminLogin" placeholder="Логин">
-        <input type="password" id="adminPassword" placeholder="Пароль">
-        <button onclick="loginAdmin()">Войти</button>
-        <p id="loginError"></p>
+<div class="admin-container">
+
+    <h1>VAY Admin Panel</h1>
+    <p class="subtitle">Управление сервисами</p>
+
+    <div class="admin-grid">
+
+        <div class="admin-card">
+            <h3>VAY Cloud</h3>
+            <select onchange="changeStatus('cloud', this.value)">
+                <option value="online">Online</option>
+                <option value="maintenance">Maintenance</option>
+                <option value="ddos">DDoS Scan</option>
+                <option value="offline">Offline</option>
+            </select>
+        </div>
+
+        <div class="admin-card">
+            <h3>VAY Messenger</h3>
+            <select onchange="changeStatus('messenger', this.value)">
+                <option value="online">Online</option>
+                <option value="maintenance">Maintenance</option>
+                <option value="ddos">DDoS Scan</option>
+                <option value="offline">Offline</option>
+            </select>
+        </div>
+
+        <div class="admin-card">
+            <h3>VAY Store</h3>
+            <select onchange="changeStatus('store', this.value)">
+                <option value="online">Online</option>
+                <option value="maintenance">Maintenance</option>
+                <option value="ddos">DDoS Scan</option>
+                <option value="offline">Offline</option>
+            </select>
+        </div>
+
     </div>
-</div>
 
-<div class="admin-panel hidden" id="adminPanel">
-    <div class="glass-card">
-        <h2>Управление сервисами</h2>
+    <button class="emergency-btn" onclick="emergencyShutdown()">
+        🚨 Emergency Shutdown
+    </button>
 
-        <div class="service-control">
-            <span>VAY Cloud</span>
-            <select onchange="updateService('cloud', this.value)">
-                <option value="online">Online</option>
-                <option value="maintenance">Maintenance</option>
-                <option value="ddos">DDoS Scan</option>
-                <option value="offline">Offline</option>
-            </select>
-        </div>
-
-        <div class="service-control">
-            <span>VAY Messenger</span>
-            <select onchange="updateService('messenger', this.value)">
-                <option value="online">Online</option>
-                <option value="maintenance">Maintenance</option>
-                <option value="ddos">DDoS Scan</option>
-                <option value="offline">Offline</option>
-            </select>
-        </div>
-
-        <div class="service-control">
-            <span>VAY Store</span>
-            <select onchange="updateService('store', this.value)">
-                <option value="online">Online</option>
-                <option value="maintenance">Maintenance</option>
-                <option value="ddos">DDoS Scan</option>
-                <option value="offline">Offline</option>
-            </select>
-        </div>
-
-        <button onclick="logoutAdmin()">Выйти</button>
+    <div class="logs">
+        <h3>Admin Logs</h3>
+        <ul id="log-list"></ul>
     </div>
+
 </div>
 
 <script src="js/admin.js"></script>
