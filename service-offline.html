@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Сервис недоступен</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="glass-bg">
+
+<div class="glass-card center">
+    <h1 id="statusTitle"></h1>
+    <p id="statusText"></p>
+    <a href="index.html">Вернуться на главную</a>
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const type = params.get("type");
+
+const title = document.getElementById("statusTitle");
+const text = document.getElementById("statusText");
+
+if (type === "maintenance") {
+    title.innerText = "Техническое обслуживание";
+    text.innerText = "Сервис временно обновляется.";
+} 
+else if (type === "ddos") {
+    title.innerText = "DDoS Scan";
+    text.innerText = "Система защиты сканирует трафик.";
+}
+else {
+    title.innerText = "Сервис отключён";
+    text.innerText = "Доступ временно ограничен.";
+}
+</script>
+
+</body>
+</html>
