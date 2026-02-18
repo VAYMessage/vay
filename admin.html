@@ -1,72 +1,30 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>VAY Admin Panel</title>
-<link rel="stylesheet" href="css/style.css">
-<script>
-if (sessionStorage.getItem("vay_admin_auth") !== "true") {
-    window.location.href = "login.html";
-}
-</script>
+<link rel="stylesheet" href="css/core.css">
+<script src="js/vaycore.js"></script>
 </head>
 <body>
 
-<div class="admin-container">
-
-    <div class="top-bar glass">
-        <h1>VAY Control Center</h1>
-        <button onclick="logout()" class="danger-btn">Logout</button>
-    </div>
-
-    <div class="global-status glass">
-        <h3>Global System Status</h3>
-        <select onchange="setGlobalStatus(this.value)" id="globalSelect">
-            <option value="operational">Operational</option>
-            <option value="degraded">Degraded</option>
-            <option value="critical">Critical</option>
-        </select>
-    </div>
-
-    <div class="services">
-        <div class="admin-card glass">
-            <h3>VAY Cloud</h3>
-            <select onchange="updateService('cloud', this.value)">
-                <option value="online">Online</option>
-                <option value="maintenance">Maintenance</option>
-                <option value="offline">Offline</option>
-            </select>
-        </div>
-
-        <div class="admin-card glass">
-            <h3>VAY ID</h3>
-            <select onchange="updateService('id', this.value)">
-                <option value="online">Online</option>
-                <option value="maintenance">Maintenance</option>
-                <option value="offline">Offline</option>
-            </select>
-        </div>
-    </div>
-
-    <div class="chart-box glass">
-        <h3>System Load</h3>
-        <canvas id="loadChart"></canvas>
-    </div>
-
-    <div class="logs glass">
-        <h3>Activity Log</h3>
-        <div id="logContainer"></div>
-    </div>
-
-    <div class="emergency glass">
-        <button onclick="emergencyShutdown()" class="danger-btn big">
-            EMERGENCY SHUTDOWN
-        </button>
-    </div>
-
+<div class="glass" style="padding:40px;width:300px;margin:100px auto;text-align:center;">
+    <h2>Admin Login</h2>
+    <input id="user" placeholder="Login"><br><br>
+    <input id="pass" type="password" placeholder="Password"><br><br>
+    <button class="vay-btn" onclick="login()">Login</button>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="js/admin.js"></script>
+<script>
+function login(){
+    const u=document.getElementById("user").value;
+    const p=document.getElementById("pass").value;
+
+    if(VAY.login(u,p)){
+        VAY.openWindow("Admin Panel","System Control Enabled");
+    } else {
+        alert("Access denied");
+    }
+}
+</script>
+
 </body>
 </html>
