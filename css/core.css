@@ -1,0 +1,38 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+body {
+    height:100vh;
+    background: radial-gradient(circle at top,#1a1a2e,#0f0f1a);
+    color:white;
+    overflow:hidden;
+}
+
+/* GLASS */
+.glass {
+    backdrop-filter: blur(30px);
+    background: rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* BUTTON */
+.vay-btn {
+    padding:12px 25px;
+    border-radius:30px;
+    border:none;
+    cursor:pointer;
+    background: rgba(255,255,255,0.15);
+    color:white;
+    transition:0.3s;
+}
+
+.vay-btn:hover {
+    transform:scale(1.05);
+    background: linear-gradient(90deg,#00f0ff,#0066ff);
+}
