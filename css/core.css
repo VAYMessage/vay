@@ -1,38 +1,92 @@
-* {
+*{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family:-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
-body {
-    height:100vh;
-    background: radial-gradient(circle at top,#1a1a2e,#0f0f1a);
+body{
+    background: radial-gradient(circle at top,#111827,#0a0a12);
     color:white;
-    overflow:hidden;
+    overflow-x:hidden;
 }
 
-/* GLASS */
-.glass {
-    backdrop-filter: blur(30px);
+/* Glass */
+.glass{
     background: rgba(255,255,255,0.08);
-    border:1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(25px);
+    border:1px solid rgba(255,255,255,0.15);
     border-radius:20px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+    box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* NAV */
+.nav{
+    display:flex;
+    justify-content:space-between;
+    padding:20px 60px;
 }
 
 /* BUTTON */
-.vay-btn {
-    padding:12px 25px;
+.vay-btn{
+    padding:10px 22px;
     border-radius:30px;
     border:none;
     cursor:pointer;
-    background: rgba(255,255,255,0.15);
+    background:rgba(255,255,255,0.1);
     color:white;
-    transition:0.3s;
+    transition:.3s;
+}
+.vay-btn:hover{
+    transform:scale(1.08);
+    background:linear-gradient(90deg,#00f0ff,#0066ff);
 }
 
-.vay-btn:hover {
-    transform:scale(1.05);
-    background: linear-gradient(90deg,#00f0ff,#0066ff);
+/* SERVICES GRID */
+.services{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:40px;
+    padding:80px;
+    perspective:1200px;
+}
+
+.service-card{
+    height:220px;
+    position:relative;
+    transform-style:preserve-3d;
+    transition:0.6s;
+}
+
+.service-card:hover{
+    transform:rotateY(12deg) rotateX(8deg) scale(1.05);
+}
+
+.service-inner{
+    height:100%;
+    padding:30px;
+    text-align:center;
+}
+
+/* 3D ICON */
+.icon3d{
+    font-size:60px;
+    margin-bottom:20px;
+    transform:translateZ(60px);
+    text-shadow:
+        0 5px 15px rgba(0,255,255,0.6),
+        0 10px 25px rgba(0,0,255,0.4);
+}
+
+/* Hero */
+.hero{
+    text-align:center;
+    padding:120px 20px;
+}
+
+.hero h1{
+    font-size:50px;
+    background:linear-gradient(90deg,#00f0ff,#00ff99);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
