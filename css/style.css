@@ -1,90 +1,138 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
 :root {
-  --glass-bg: rgba(255,255,255,0.6);
-  --glass-border: rgba(255,255,255,0.3);
-  --shadow-soft: 0 10px 40px rgba(0,0,0,0.08);
-  --blur-strong: blur(40px);
+  --bg: #f6f7f9;
+  --card: rgba(255,255,255,0.6);
+  --border: rgba(0,0,0,0.06);
+  --text: #111;
+  --muted: #6e6e73;
+  --accent: #0a84ff;
 }
 
 * {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Inter',sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
 }
 
 body {
-  min-height:100vh;
-  background:linear-gradient(135deg,#f0f4ff,#ffffff);
-  overflow-x:hidden;
-  transition:background 0.6s ease;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* Glass Card */
+.container {
+  width: 1100px;
+  max-width: 90%;
+  margin: auto;
+}
+
 .glass {
-  background:var(--glass-bg);
-  backdrop-filter:var(--blur-strong);
-  border:1px solid var(--glass-border);
-  border-radius:24px;
-  box-shadow:var(--shadow-soft);
-  padding:40px;
-  transition:all 0.4s ease;
+  background: var(--card);
+  backdrop-filter: blur(30px);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  transition: all .3s ease;
 }
 
 .glass:hover {
-  transform:translateY(-6px);
+  transform: translateY(-4px);
 }
 
-/* 3D Icon */
-.icon-3d {
-  width:90px;
-  transition:transform 0.5s ease;
+.nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 14px 30px;
+  display: flex;
+  gap: 40px;
+  border-radius: 999px;
 }
 
-.card:hover .icon-3d {
-  transform:translateZ(40px) scale(1.1);
+.nav a {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  opacity: .7;
+  transition: .2s;
 }
 
-/* Page Transition */
-.page {
-  opacity:0;
-  transform:translateY(30px);
-  animation:fadeIn 0.8s ease forwards;
+.nav a:hover {
+  opacity: 1;
 }
 
-@keyframes fadeIn {
-  to {
-    opacity:1;
-    transform:translateY(0);
-  }
+.hero {
+  padding: 160px 0 120px;
+  text-align: center;
 }
 
-/* Button */
+.hero h1 {
+  font-size: 54px;
+  font-weight: 600;
+  letter-spacing: -1px;
+}
+
+.hero p {
+  margin-top: 20px;
+  font-size: 18px;
+  color: var(--muted);
+}
+
 .btn {
-  padding:14px 28px;
-  border-radius:16px;
-  border:none;
-  cursor:pointer;
-  font-weight:500;
-  background:rgba(255,255,255,0.7);
-  backdrop-filter:blur(20px);
-  box-shadow:0 8px 25px rgba(0,0,0,0.08);
-  transition:all 0.3s ease;
+  margin-top: 40px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent);
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: .3s;
 }
 
 .btn:hover {
-  transform:scale(1.05);
+  transform: scale(1.05);
 }
 
-/* Soft light mouse */
-.light {
-  position:fixed;
-  width:400px;
-  height:400px;
-  pointer-events:none;
-  background:radial-gradient(circle,rgba(100,150,255,0.2),transparent 60%);
-  border-radius:50%;
-  transform:translate(-50%,-50%);
-  z-index:0;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 100px 0;
+}
+
+.card {
+  padding: 40px;
+  text-align: left;
+}
+
+.symbol {
+  font-size: 26px;
+  font-weight: 500;
+  opacity: .6;
+}
+
+.card h3 {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.card p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.page {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fade .6s ease forwards;
+}
+
+@keyframes fade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
