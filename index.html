@@ -1,57 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="css/core.css">
-<script src="js/vaycore.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAY Ecosystem</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
+
 </head>
 <body>
 
-<div class="nav glass">
-    <div>VAY</div>
-    <div>
-        <button class="vay-btn" onclick="VAY.go('vayos.html')">VAY OS</button>
-        <button class="vay-btn" onclick="VAY.go('monitoring.html')">Monitoring</button>
-        <button class="vay-btn" onclick="VAY.go('admin.html')">Admin</button>
+<nav class="nav glass">
+    <div class="logo">VAY</div>
+    <div class="links">
+        <a href="#">Services</a>
+        <a href="#">OS</a>
+        <a href="#">Monitoring</a>
+        <a href="#">Admin</a>
     </div>
-</div>
+</nav>
 
-<div class="hero">
-    <h1>VAY Ecosystem</h1>
-    <p>Digital Infrastructure Platform</p>
-</div>
+<section class="hero">
+    <h1>Digital Infrastructure. Reimagined.</h1>
+    <p>Minimal outside. Powerful inside.</p>
+</section>
 
-<div class="services">
+<section class="services">
 
-    <div class="service-card">
-        <div class="service-inner glass">
-            <div class="icon3d">☁️</div>
-            <h3>VAY Cloud</h3>
-        </div>
-    </div>
-
-    <div class="service-card">
-        <div class="service-inner glass">
-            <div class="icon3d">🧠</div>
-            <h3>VAY AI</h3>
-        </div>
+    <div class="card glass">
+        <div class="canvas-container" id="cloud"></div>
+        <h3>VAY Cloud</h3>
     </div>
 
-    <div class="service-card">
-        <div class="service-inner glass">
-            <div class="icon3d">🔐</div>
-            <h3>VAY ID</h3>
-        </div>
+    <div class="card glass">
+        <div class="canvas-container" id="ai"></div>
+        <h3>VAY AI</h3>
     </div>
 
-    <div class="service-card">
-        <div class="service-inner glass">
-            <div class="icon3d">📊</div>
-            <h3>Monitoring</h3>
-        </div>
+    <div class="card glass">
+        <div class="canvas-container" id="security"></div>
+        <h3>VAY ID</h3>
     </div>
 
-</div>
+    <div class="card glass">
+        <div class="canvas-container" id="monitoring"></div>
+        <h3>Monitoring</h3>
+    </div>
 
+</section>
+
+<script src="app.js"></script>
 </body>
 </html>
