@@ -1,85 +1,175 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+/* =========================
+   VAY PREMIUM UI SYSTEM
+   Light / Frost / UltraClean
+========================= */
+
+:root {
+  --bg: #f4f6f9;
+  --card: rgba(255,255,255,0.55);
+  --border: rgba(255,255,255,0.6);
+  --text: #111;
+  --accent: #007aff;
 }
 
-body{
-    background: linear-gradient(180deg,#f8fbff,#eef4f9);
-    color:#0f172a;
-    overflow-x:hidden;
+body.dark {
+  --bg: #0f1115;
+  --card: rgba(20,20,25,0.55);
+  --border: rgba(255,255,255,0.08);
+  --text: #f5f5f7;
+  --accent: #4da3ff;
 }
 
-/* Glass */
-.glass{
-    background: rgba(255,255,255,0.6);
-    backdrop-filter: blur(25px);
-    border:1px solid rgba(255,255,255,0.7);
-    border-radius:28px;
-    box-shadow:0 20px 60px rgba(0,0,0,0.08);
+body.ultraclean {
+  --bg: #ffffff;
+  --card: rgba(255,255,255,0.85);
+  --border: rgba(0,0,0,0.05);
+  --text: #000;
+  --accent: #000;
 }
 
-/* NAV */
-.nav{
-    position:fixed;
-    top:20px;
-    left:50%;
-    transform:translateX(-50%);
-    width:90%;
-    padding:18px 40px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.nav a{
-    text-decoration:none;
-    margin-left:25px;
-    color:#334155;
-    font-weight:500;
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background .6s ease, color .6s ease;
+  overflow-x: hidden;
 }
 
-/* HERO */
-.hero{
-    text-align:center;
-    padding:180px 20px 100px;
+/* ========= PAGE ANIMATION ========= */
+
+.page {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: pageEnter .8s cubic-bezier(.25,.8,.25,1) forwards;
 }
 
-.hero h1{
-    font-size:48px;
-    font-weight:600;
+@keyframes pageEnter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.hero p{
-    margin-top:15px;
-    color:#64748b;
+/* ========= GLASS CARD ========= */
+
+.glass {
+  backdrop-filter: blur(40px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+  transition: transform .4s ease, box-shadow .4s ease;
 }
 
-/* SERVICES */
-.services{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:50px;
-    padding:100px;
+.glass:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 40px 80px rgba(0,0,0,0.12);
 }
 
-.card{
-    padding:40px;
-    text-align:center;
-    transition:0.4s ease;
+/* ========= HERO ========= */
+
+.hero {
+  text-align: center;
+  padding: 120px 20px;
 }
 
-.card:hover{
-    transform:translateY(-10px);
+.hero h1 {
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: -1px;
 }
 
-.card h3{
-    margin-top:20px;
-    font-weight:500;
+.hero p {
+  margin-top: 20px;
+  opacity: .7;
+  font-size: 18px;
 }
 
-/* 3D Canvas */
-.canvas-container{
-    height:160px;
+/* ========= SERVICES GRID ========= */
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 40px;
+  padding: 80px 10%;
+}
+
+.service-card {
+  position: relative;
+  padding: 50px 30px;
+  text-align: center;
+  overflow: visible;
+}
+
+/* ========= 3D ICON ========= */
+
+.service-icon {
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  transform-style: preserve-3d;
+  transition: transform .5s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: rotateY(15deg) rotateX(10deg) translateZ(25px);
+}
+
+.service-icon img {
+  width: 100%;
+  filter: drop-shadow(0 25px 40px rgba(0,0,0,0.2));
+}
+
+/* ========= BUTTON ========= */
+
+.btn {
+  margin-top: 25px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  background: var(--accent);
+  color: white;
+  transition: all .3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* ========= NAVBAR ========= */
+
+.navbar {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 30px;
+  border-radius: 999px;
+  backdrop-filter: blur(30px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  gap: 30px;
+  z-index: 1000;
+}
+
+/* ========= LIGHT FOLLOW ========= */
+
+.light-follow {
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%);
+  mix-blend-mode: overlay;
+  transition: transform .05s linear;
 }
