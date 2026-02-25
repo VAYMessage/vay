@@ -1,0 +1,12 @@
+body.theme-frost {
+  --bg: #f2f4f7;
+  --card: rgba(255,255,255,0.6);
+}
+
+body.theme-ultraclean {
+  --bg: #ffffff;
+  --card: #ffffff;
+  --blur-soft: none;
+  --blur-strong: none;
+  --shadow-soft: 0 2px 10px rgba(0,0,0,0.05);
+}
