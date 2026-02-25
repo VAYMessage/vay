@@ -1,43 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-<meta charset="UTF-8">
-<title>Dashboard</title>
-<link rel="stylesheet" href="css/style.css">
-<script defer src="js/app.js"></script>
+  <meta charset="UTF-8">
+  <title>Dashboard — VAY ID</title>
+
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/notification-center.css">
+  <link rel="stylesheet" href="/css/badge.css">
+  <link rel="stylesheet" href="/css/animations.css">
 </head>
-<body class="page">
+<body class="theme-frost">
 
-<div class="nav glass">
-  <a href="index.html">VAY</a>
-  <a href="#">Overview</a>
-</div>
+<div class="container page">
 
-<div class="container">
+  <div class="header">
+    <h2>Dashboard</h2>
 
-  <div class="grid">
-
-    <div class="glass card">
-      <div class="symbol">01</div>
-      <h3>Cloud</h3>
-      <p>Storage and distributed infrastructure.</p>
+    <div style="position:relative;">
+      <button class="button" onclick="toggleNotificationCenter()">
+        🔔
+      </button>
+      <div id="badge" class="badge hidden">0</div>
     </div>
 
-    <div class="glass card">
-      <div class="symbol">02</div>
-      <h3>Users</h3>
-      <p>Authentication and account management.</p>
-    </div>
+    <button class="button" style="background:#333;" onclick="logout()">Выйти</button>
+  </div>
 
-    <div class="glass card">
-      <div class="symbol">03</div>
-      <h3>Analytics</h3>
-      <p>Data tracking and performance metrics.</p>
-    </div>
+  <br>
 
+  <div class="card">
+    <h3>Добро пожаловать</h3>
+    <p id="userEmail"></p>
   </div>
 
 </div>
+
+<div id="notificationCenter" class="notification-center"></div>
+
+<script type="module">
+import { listenAuth, logout } from "/js/core/auth.js";
+import { initPush } from "/js/notifications/push.js";
+import { initNotificationCenter, toggleNotificationCenter } from "/js/notifications/notification-center.js";
+import { updateBadge } from "/js/ui/badge.js";
+
+listenAuth(user => {
+  if (!user) {
+    window.location.href = "/";
+    return;
+  }
+
+  document.getElementById("userEmail").innerText = user.email;
+  initPush(user);
+  initNotificationCenter(user);
+  updateBadge(user.uid);
+});
+
+window.logout = logout;
+window.toggleNotificationCenter = toggleNotificationCenter;
+</script>
 
 </body>
 </html>
