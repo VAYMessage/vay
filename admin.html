@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel — VAY ID</title>
+
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+</head>
+<body class="theme-frost">
+
+<div class="container page">
+
+  <div class="header">
+    <h2>Админ-панель</h2>
+    <button class="button" style="background:#333;" onclick="logout()">Выйти</button>
+  </div>
+
+  <br>
+
+  <div class="card">
+    <h3>Отправить уведомление по роли</h3>
+
+    <select id="role" class="input">
+      <option value="user">User</option>
+      <option value="admin">Admin</option>
+    </select>
+
+    <br><br>
+
+    <input id="title" class="input" placeholder="Заголовок">
+    <br><br>
+    <input id="body" class="input" placeholder="Текст уведомления">
+
+    <br><br>
+
+    <button class="button" onclick="send()">Отправить</button>
+    <p id="status"></p>
+  </div>
+
+</div>
+
+<script type="module">
+import { listenAuth, logout } from "/js/core/auth.js";
+import { isAdmin } from "/js/core/roles.js";
+import { sendByRole } from "/js/admin/admin.js";
+
+listenAuth(async user => {
+  if (!user) {
+    window.location.href = "/";
+    return;
+  }
+
+  const admin = await isAdmin(user.uid);
+  if (!admin) {
+    window.location.href = "/403.html";
+  }
+});
+
+window.logout = logout;
+
+window.send = async () => {
+  const role = document.getElementById("role").value;
+  const title = document.getElementById("title").value;
+  const body = document.getElementById("body").value;
+
+  const result = await sendByRole(role, title, body);
+  document.getElementById("status").innerText = result ? "Отправлено" : "Ошибка";
+};
+</script>
+
+</body>
+</html>
