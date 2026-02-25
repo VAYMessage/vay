@@ -1,0 +1,30 @@
+body.error-page {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f6f8;
+  font-family: system-ui;
+}
+
+.error-card {
+  padding: 40px 60px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(25px);
+  border-radius: 24px;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.error-card h1 {
+  font-size: 64px;
+  margin: 0;
+}
+
+.error-card a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
