@@ -1,30 +1,25 @@
-body.error-page {
-  margin: 0;
+.error-page {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #f5f6f8;
-  font-family: system-ui;
+  background: var(--bg);
 }
 
 .error-card {
-  padding: 40px 60px;
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(25px);
-  border-radius: 24px;
+  padding: 60px;
+  background: var(--card);
+  backdrop-filter: var(--blur-strong);
+  border-radius: var(--radius-xl);
   text-align: center;
-  animation: fadeIn 0.5s ease;
+  box-shadow: var(--shadow-soft);
 }
 
 .error-card h1 {
-  font-size: 64px;
+  font-size: 72px;
   margin: 0;
 }
 
-.error-card a {
-  display: inline-block;
-  margin-top: 20px;
-  text-decoration: none;
-  font-weight: 500;
+.error-card p {
+  color: var(--muted);
 }
