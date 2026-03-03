@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, #e0e7ff, #f8fafc);
+  min-height: 100vh;
+  transition: 0.4s;
+}
+
+body.dark {
+  background: linear-gradient(135deg, #0f172a, #111827);
+  color: white;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+}
+
+button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.4);
+  transition: 0.3s;
+}
+
+body.dark button {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.card {
+  padding: 30px;
+  border-radius: 24px;
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.6);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+  transition: 0.4s;
+}
+
+body.dark .card {
+  background: rgba(255,255,255,0.08);
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  border: none;
+  background: rgba(255,255,255,0.6);
+}
+
+body.dark input {
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 40px;
+}
+
+.notifications {
+  position: fixed;
+  right: 20px;
+  top: 80px;
+  width: 280px;
+  padding: 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(25px);
+  background: rgba(255,255,255,0.6);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  transition: 0.4s;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+}
+
+.mini-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 20px;
+  border-radius: 30px;
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.6);
+}
