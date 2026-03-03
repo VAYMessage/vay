@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | VAY</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>Dashboard</h1>
+  <div>
+    <button onclick="toggleMiniPlayer()">🎵</button>
+    <button onclick="toggleNotifications()">🔔</button>
+  </div>
+</header>
+
+<main class="dashboard-grid">
+
+  <section class="card">
+    <h2>VAY RADIO</h2>
+    <div id="vplayer001fd3b1">
+      <script async src="https://volnorez.com/plugins/jscode/player_js/001fd3b1/%7B%22autoplay%22%3Afalse%7D"></script>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Chat</h2>
+    <div id="volnorez_chat" data-code="001fd3b1">
+      <script async src="https://volnorez.com/plugins/jscode/chat_js"></script>
+    </div>
+  </section>
+
+</main>
+
+<div id="miniPlayer" class="mini-player hidden">🎵 VAY RADIO</div>
+<div id="notifications" class="notifications hidden"></div>
+
+<script src="js/dashboard.js"></script>
+<script src="js/notifications.js"></script>
+<script src="js/theme.js"></script>
+
+</body>
+</html>
